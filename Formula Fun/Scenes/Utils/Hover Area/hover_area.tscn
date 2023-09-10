@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmhhds1ny1nlj"]
+
+[ext_resource type="Script" path="res://Scenes/Utils/Hover Area/hover_area.gd" id="1_8sppw"]
+[ext_resource type="Texture2D" uid="uid://cgvsibmxv27c" path="res://Assets/icon.svg" id="2_66378"]
+[ext_resource type="Texture2D" uid="uid://bhqgbvemsuh26" path="res://Assets/Progress/CircularLoadingBarWhite.png" id="2_lgtcn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qa4t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_66378")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfgdn"]
+size = Vector2(128, 128)
+
+[node name="HoverArea" type="Area2D"]
+script = ExtResource("1_8sppw")
+
+[node name="AnimatedAreaSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2qa4t")
+autoplay = "default"
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_gfgdn")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 5
+texture_progress = ExtResource("2_lgtcn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

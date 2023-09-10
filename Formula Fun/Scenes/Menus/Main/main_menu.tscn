@@ -1,6 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://blvpw0mfn71rd"]
+[gd_scene load_steps=11 format=3 uid="uid://blvpw0mfn71rd"]
 
 [ext_resource type="PackedScene" uid="uid://dly7dc1u323uq" path="res://Scenes/Entities/Car/car.tscn" id="1_pj2to"]
+[ext_resource type="Script" path="res://Scenes/Menus/Main/PlayButton.gd" id="2_vdoxx"]
+[ext_resource type="Texture2D" uid="uid://cgvsibmxv27c" path="res://Assets/icon.svg" id="3_6a0qy"]
+[ext_resource type="Texture2D" uid="uid://bhqgbvemsuh26" path="res://Assets/Progress/CircularLoadingBarWhite.png" id="3_auuq7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xpdt"]
 size = Vector2(1170, 20)
@@ -13,6 +16,20 @@ size = Vector2(20, 666)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h4bxq"]
 size = Vector2(20, 666)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2qa4t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_6a0qy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gfgdn"]
+size = Vector2(128, 128)
 
 [node name="MainMenu" type="Node2D"]
 
@@ -34,5 +51,25 @@ shape = SubResource("RectangleShape2D_r5jcy")
 position = Vector2(1154, 328)
 shape = SubResource("RectangleShape2D_h4bxq")
 
+[node name="PlayButton" type="Area2D" parent="."]
+position = Vector2(209, 497)
+script = ExtResource("2_vdoxx")
+
+[node name="AnimatedAreaSprite" type="AnimatedSprite2D" parent="PlayButton"]
+sprite_frames = SubResource("SpriteFrames_2qa4t")
+autoplay = "default"
+
+[node name="Collider" type="CollisionShape2D" parent="PlayButton"]
+shape = SubResource("RectangleShape2D_gfgdn")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="PlayButton"]
+offset_right = 150.0
+offset_bottom = 150.0
+fill_mode = 5
+texture_progress = ExtResource("3_auuq7")
+
 [node name="Car" parent="." instance=ExtResource("1_pj2to")]
-position = Vector2(236, 238)
+position = Vector2(575, 199)
+
+[connection signal="body_entered" from="PlayButton" to="PlayButton" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="PlayButton" to="PlayButton" method="_on_body_exited"]
