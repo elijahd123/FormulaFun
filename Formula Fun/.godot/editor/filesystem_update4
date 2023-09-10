@@ -1,0 +1,6 @@
+res://Scenes/Entities/Car/car.tscn
+res://Scenes/Entities/Car/LeftWheel.gd
+res://Scenes/Entities/Car/RightWheel.gd
+res://Scenes/Entities/Car/Sprites.gd
+res://Scenes/Entities/Car/car.gd
+res://Scenes/Menus/Main/main_menu.tscn

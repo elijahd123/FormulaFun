@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dly7dc1u323uq"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Car/car.gd" id="1_3h0nx"]
+[ext_resource type="Texture2D" uid="uid://do1u8g5tehchr" path="res://Assets/Cars/CarsSpritesheet.png" id="1_avrux"]
+[ext_resource type="Script" path="res://Scenes/Entities/Car/Sprites.gd" id="1_oglos"]
+[ext_resource type="Texture2D" uid="uid://b37bj1kfi051v" path="res://Assets/Cars/Wheel.png" id="2_kwq22"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vvcdg"]
+radius = 22.0
+height = 114.0
+
+[node name="Car" type="CharacterBody2D"]
+script = ExtResource("1_3h0nx")
+
+[node name="Sprites" type="Node2D" parent="."]
+script = ExtResource("1_oglos")
+
+[node name="Car" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("1_avrux")
+region_enabled = true
+region_rect = Rect2(0, 0, 60, 120)
+
+[node name="LeftWheel" type="Sprite2D" parent="Sprites"]
+position = Vector2(-24, -30)
+texture = ExtResource("2_kwq22")
+
+[node name="RightWheel" type="Sprite2D" parent="Sprites"]
+position = Vector2(24, -30)
+texture = ExtResource("2_kwq22")
+
+[node name="CollisionCapsule" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_vvcdg")

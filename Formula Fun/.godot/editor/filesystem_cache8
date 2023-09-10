@@ -1,0 +1,17 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1694377909
+::res://Assets/::1694350823
+icon.svg::CompressedTexture2D::154071577247231366::1694348737::1694350823::1::::<><>::
+::res://Assets/Cars/::1694353844
+CarsSpritesheet.png::CompressedTexture2D::8196853317024631007::1694351457::1694351459::1::::<><>::
+Wheel.png::CompressedTexture2D::4417846564119865065::1694353406::1694353408::1::::<><>::
+::res://Scenes/::1694354935
+::res://Scenes/Entities/::1694351265
+::res://Scenes/Entities/Car/::1694361773
+car.gd::GDScript::-1::1694361746::0::1::::<>CharacterBody2D<>::
+car.tscn::PackedScene::7982832844504170816::1694361773::0::1::::<><>::res://Scenes/Entities/Car/car.gd<>uid://do1u8g5tehchr::::res://Assets/Cars/CarsSpritesheet.png<>res://Scenes/Entities/Car/Sprites.gd<>uid://b37bj1kfi051v::::res://Assets/Cars/Wheel.png
+Sprites.gd::GDScript::-1::1694358622::0::1::::<>Node2D<>::
+::res://Scenes/Menus/::1694354953
+::res://Scenes/Menus/Main/::1694361773
+main_menu.tscn::PackedScene::3202801270771361693::1694361773::0::1::::<><>::uid://dly7dc1u323uq::::res://Scenes/Entities/Car/car.tscn
+::res://Scenes/Races/::1694354935
